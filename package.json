@@ -20,5 +20,10 @@
   "dependencies": {
     "moment": "^2.29.1",
     "winston": "^3.3.3"
-  }
+  },
+  "files": [
+    "winston.js",
+    "index.js",
+    "README.md"
+  ]
 }
