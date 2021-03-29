@@ -1,11 +1,11 @@
 [English Document](README_EN.md)
 
-## Install
+## 安装
 ```
 npm install node-console-formatter
 ```
 
-## Usage
+## 使用
 ```
 // 什么也不用做，会自动替换console
 require('node-console-formatter')
@@ -14,7 +14,7 @@ require('node-console-formatter')
 require('node-console-formatter')(outputDir:'logs')
 ```
 
-## Screenshot
+## 截图
 ```
 // 仅打印文本
 console.debug('This is a debug type log')
