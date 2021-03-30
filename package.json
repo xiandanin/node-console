@@ -1,7 +1,7 @@
 {
   "name": "node-console-formatter",
-  "version": "1.0.1",
-  "description": "colored console",
+  "version": "1.0.2",
+  "description": "colored console, automatically replace the console api.",
   "main": "index.js",
   "scripts": {
     "test": "node sample.js",
@@ -24,6 +24,7 @@
   "files": [
     "winston.js",
     "index.js",
-    "README.md"
+    "README.md",
+    "README_EN.md"
   ]
 }
