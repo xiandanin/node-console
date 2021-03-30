@@ -1,6 +1,6 @@
 {
   "name": "node-console-formatter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "colored console",
   "main": "index.js",
   "scripts": {
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xiandanin/node-console.git"
+    "url": "git+https://github.com/xiandanin/node-console-formatter.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "xiandanin",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xiandanin/node-console/issues"
+    "url": "https://github.com/xiandanin/node-console-formatter/issues"
   },
-  "homepage": "https://github.com/xiandanin/node-console#readme",
+  "homepage": "https://github.com/xiandanin/node-console-formatter#readme",
   "dependencies": {
     "moment": "^2.29.1",
     "winston": "^3.3.3"
