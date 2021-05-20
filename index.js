@@ -45,11 +45,19 @@ function colorize (str, style) {
 }
 
 let logger
+let onlyPrintMessage = false
 
 function log (level, message, ...optionalParams) {
-    const time = moment().format('YYYY-MM-DD HH:mm:ss.SSS')
-    const text = util.format('[%s][%s]%s', time, level.toUpperCase().padEnd(5), util.format(message || '', ...optionalParams))
-    console.log( colorize(text, levels[level].color))
+    const formatMessage = util.format(message || '', ...optionalParams)
+    let text
+    if (onlyPrintMessage) {
+        text = formatMessage
+        console.log(colorize(text, levels[level].color))
+    } else {
+        const time = moment().format('YYYY-MM-DD HH:mm:ss.SSS')
+        text = util.format('[%s][%s] %s', time, level.toUpperCase().padEnd(5), formatMessage)
+        console.log(colorize(text, levels[level].color))
+    }
     if (logger) {
         logger.log({
             level: level,
@@ -65,7 +73,8 @@ console.info = (m, ...o) => log('info', m, ...o)
 console.debug = (m, ...o) => log('debug', m, ...o)
 //console.silly = (m, ...o) => log('silly', m, ...o)
 
-module.exports = function (outputDir) {
+module.exports = function ({outputDir, onlyMessage}) {
+    onlyPrintMessage = onlyMessage
     if (outputDir) {
         logger = require('./winston')(outputDir)
     }

@@ -1,6 +1,6 @@
 {
   "name": "node-console-formatter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "colored console, automatically replace the console api.",
   "main": "index.js",
   "scripts": {

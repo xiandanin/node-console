@@ -1,4 +1,4 @@
-require('./index')('logs')
+require('./index')({outputDir: 'logs', onlyMessage: false})
 
 // print text
 console.debug('This is a debug type log')

@@ -18,11 +18,13 @@ npm install node-console-formatter
 
 ## 使用
 ```
-// 什么也不用做，会自动替换console
+// 默认配置安装 什么也不用做，会自动替换console
 require('node-console-formatter')
 
-// 如果要输出到文件
-require('node-console-formatter')('logs')
+// 自定义配置安装
+// outputDir: 日志文件输出路径
+// onlyMessage: 仅打印消息
+require('node-console-formatter')({outputDir: 'logs', onlyMessage: false})
 ```
 
 ## 截图

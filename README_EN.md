@@ -19,10 +19,12 @@ npm install node-console-formatter
 
 ## Usage
 ```
-// No need to do anything, it will automatically replace the console
+// Default configuration. No need to do anything, it will automatically replace the console
 require('node-console-formatter')
 
-// If you need to output to a file
+// Custom configuration. If you need to output to a file
+// outputDir: log file output path
+// onlyMessage: print messages only
 require('node-console-formatter')('logs')
 ```
 
