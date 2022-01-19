@@ -46,6 +46,7 @@ function colorize (str, style) {
 
 let logger
 let onlyPrintMessage = false
+let printPMNumber = false
 
 function log (level, message, ...optionalParams) {
     const formatMessage = util.format(message || '', ...optionalParams)
@@ -55,7 +56,13 @@ function log (level, message, ...optionalParams) {
         console.log(colorize(text, levels[level].color))
     } else {
         const time = moment().format('YYYY-MM-DD HH:mm:ss.SSS')
-        text = util.format('[%s][%s] %s', time, level.toUpperCase().padEnd(5), formatMessage)
+        const levelStr =level.toUpperCase().padEnd(5)
+        if (printPMNumber) {
+            const pmname = `${process.env.name}-${process.env.pm_id}`
+            text = util.format('[%s][%s][%s] %s', time, levelStr, pmname, formatMessage)
+        } else {
+            text = util.format('[%s][%s] %s', time, levelStr, formatMessage)
+        }
         console.log(colorize(text, levels[level].color))
     }
     if (logger) {
@@ -73,8 +80,16 @@ console.info = (m, ...o) => log('info', m, ...o)
 console.debug = (m, ...o) => log('debug', m, ...o)
 //console.silly = (m, ...o) => log('silly', m, ...o)
 
-module.exports = function ({outputDir, onlyMessage}) {
+module.exports = function ({
+                               // 输出文件夹
+                               outputDir,
+                               // 是否仅打印信息
+                               onlyMessage,
+                               // 是否打印pm2名称
+                               pmNumber
+                           }) {
     onlyPrintMessage = onlyMessage
+    printPMNumber = pmNumber
     if (outputDir) {
         logger = require('./winston')(outputDir)
     }
